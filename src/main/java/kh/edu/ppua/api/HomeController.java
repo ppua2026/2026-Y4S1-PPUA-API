@@ -1,4 +1,4 @@
-package com.example.ppuaapi;
+package kh.edu.ppua.api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
