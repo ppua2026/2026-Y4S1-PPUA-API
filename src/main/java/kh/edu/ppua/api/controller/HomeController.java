@@ -1,4 +1,4 @@
-package kh.edu.ppua.api;
+package kh.edu.ppua.api.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
