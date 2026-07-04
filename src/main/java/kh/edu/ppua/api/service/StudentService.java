@@ -20,6 +20,10 @@ public class StudentService {
         return repository.getStudents();
     }
 
+    public Student getStudentById(long id){
+        return  repository.getStudentById(id);
+    }
+
     public Student saveStudent(Student student){
         repository.saveStudent(student);
         return student;

@@ -1,6 +1,11 @@
 package kh.edu.ppua.api.controller;
 
+import jakarta.validation.Valid;
+import kh.edu.ppua.api.dto.UserCreateRequest;
+import kh.edu.ppua.api.exceptions.ResourceNotFoundException;
 import kh.edu.ppua.api.model.UserEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.swing.text.html.Option;
@@ -21,15 +26,27 @@ public class UserController {
     }
 
     @RequestMapping("/{id}")
-    public UserEntity findUserById(@PathVariable long id){
-        Optional<UserEntity> userEntity = userEntities.stream().filter((o)-> o.getId() == id).findFirst();
-        return userEntity.get();
+    public ResponseEntity<?> findUserById(@PathVariable long id) throws ResourceNotFoundException {
+        Optional<UserEntity> userEntity = Optional.of(userEntities.stream().filter((o) -> o.getId() == id).findFirst().orElseThrow(() -> new ResourceNotFoundException("User not found")));
+        return ResponseEntity.ok(userEntity);
     }
 
     @PostMapping
-    public UserEntity createUser(@RequestBody UserEntity userEntity){
+    public ResponseEntity<?> createUser(@Valid @RequestBody UserCreateRequest request, BindingResult result){
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUsername(request.getUsername());
+        userEntity.setEmail(request.getEmail());
+        userEntity.setPassword(request.getPassword());
+        userEntity.setAge(request.getAge());
         userEntities.add(userEntity);
-        return userEntity;
+
+        if(result.hasErrors()){
+            return  ResponseEntity.badRequest().body(result.getAllErrors());
+        }
+
+        int i = 10 / 0;
+
+        return ResponseEntity.ok(userEntity);
     }
 
     @PutMapping("/{id}")

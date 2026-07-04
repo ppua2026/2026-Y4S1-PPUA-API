@@ -1,0 +1,16 @@
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/PPUAApiApplication.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/ServletInitializer.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/config/OpenApiConfig.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/controller/AlumniController.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/controller/CourseController.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/controller/FacultyController.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/controller/HomeController.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/controller/NewsController.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/controller/StudentController.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/controller/SubjectController.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/controller/TeacherController.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/controller/UserController.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/model/Student.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/model/UserEntity.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/repository/StudentRepository.java
+/Users/chivon.chhai/Documents/Developers/PPUA/2026-Y4S1-PPUA-API/src/main/java/kh/edu/ppua/api/service/StudentService.java
