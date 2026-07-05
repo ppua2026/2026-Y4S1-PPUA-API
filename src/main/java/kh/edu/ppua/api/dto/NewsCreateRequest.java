@@ -7,5 +7,4 @@ public class NewsCreateRequest {
     String author;
     String email;
 
-
 }
