@@ -4,30 +4,31 @@ import jakarta.validation.Valid;
 import kh.edu.ppua.api.dto.UserCreateRequest;
 import kh.edu.ppua.api.exceptions.ResourceNotFoundException;
 import kh.edu.ppua.api.model.UserEntity;
+import kh.edu.ppua.api.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import javax.swing.text.html.Option;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping( "/api/v1/users")
 public class UserController {
 
-    List<UserEntity> userEntities = new ArrayList<>();
+    private final UserRepository userRepository;
+
+    public UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @GetMapping()
     public List<UserEntity> findAllUser(){
-        return userEntities;
+        return userRepository.findAll();
     }
 
     @RequestMapping("/{id}")
     public ResponseEntity<?> findUserById(@PathVariable long id) throws ResourceNotFoundException {
-        Optional<UserEntity> userEntity = Optional.of(userEntities.stream().filter((o) -> o.getId() == id).findFirst().orElseThrow(() -> new ResourceNotFoundException("User not found")));
+        Optional<UserEntity> userEntity = Optional.of(userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found")));
         return ResponseEntity.ok(userEntity);
     }
 
@@ -38,31 +39,27 @@ public class UserController {
         userEntity.setEmail(request.getEmail());
         userEntity.setPassword(request.getPassword());
         userEntity.setAge(request.getAge());
-        userEntities.add(userEntity);
-
+        userRepository.save(userEntity);
         if(result.hasErrors()){
             return  ResponseEntity.badRequest().body(result.getAllErrors());
         }
-
-        int i = 10 / 0;
-
         return ResponseEntity.ok(userEntity);
     }
 
     @PutMapping("/{id}")
-    public UserEntity updateUser(@PathVariable long id, @RequestBody UserEntity userEntity){
-       Optional<UserEntity> user = userEntities.stream().filter((o) -> o.getId()==id).findFirst();
-       System.out.println(user.get());
-       userEntities.remove(user.get());
-       userEntities.add(userEntity);
-        return userEntity;
+    public ResponseEntity<?> updateUser(@PathVariable long id, @RequestBody UserEntity userEntity){
+        userEntity.setId(id);
+        userEntity = userRepository.save(userEntity);
+        return ResponseEntity.ok(userEntity);
     }
 
     @DeleteMapping("/{id}")
-    public UserEntity deleteUser(@PathVariable long id){
-        Optional<UserEntity> user = userEntities.stream().filter((o) -> o.getId()==id).findFirst();
-        userEntities.remove(user.get());
-        return user.get();
+    public ResponseEntity<?> deleteUser(@PathVariable long id){
+        Optional<UserEntity> userEntity = userRepository.findById(id);
+        if(userEntity.isPresent()){
+            userRepository.deleteById(id);
+        }
+        return ResponseEntity.ok(userEntity);
     }
 
 

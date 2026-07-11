@@ -1,14 +1,15 @@
 package kh.edu.ppua.api.controller;
 
-import kh.edu.ppua.api.model.SubjectEntity;
+import kh.edu.ppua.api.model.LectureEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping(value = "/api/v1/subject")
+@RequestMapping(value = "/api/v1/teacher")
 @RestController
-public class SubjectController implements IDefaultController<SubjectEntity> {
+public class LectureController implements IDefaultController<LectureEntity> {
+
     @Override
     public ResponseEntity<?> findAllWithPaginate(@RequestParam(name = "query", defaultValue = "") String query,
                                                  @RequestParam(name = "page", defaultValue = "0") int page,
@@ -22,12 +23,12 @@ public class SubjectController implements IDefaultController<SubjectEntity> {
     }
 
     @Override
-    public ResponseEntity<?> saveNew(SubjectEntity request) {
+    public ResponseEntity<?> saveNew(LectureEntity request) {
         return null;
     }
 
     @Override
-    public ResponseEntity<?> update(SubjectEntity request) {
+    public ResponseEntity<?> update(LectureEntity request) {
         return null;
     }
 

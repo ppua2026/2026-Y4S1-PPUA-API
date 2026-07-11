@@ -1,4 +1,4 @@
 package kh.edu.ppua.api.model;
 
-public class TeacherEntity {
+public class LectureEntity {
 }
