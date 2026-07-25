@@ -28,7 +28,7 @@ public class AlumniController implements IDefaultController<AlumniEntity> {
     }
 
     @Override
-    public ResponseEntity<?> update(AlumniEntity request) {
+    public ResponseEntity<?> update(AlumniEntity request, Long id) {
         return null;
     }
 

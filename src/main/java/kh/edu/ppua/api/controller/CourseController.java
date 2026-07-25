@@ -30,7 +30,7 @@ public class CourseController implements IDefaultController<CourseRequest>{
     }
 
     @Override
-    public ResponseEntity<?> update(CourseRequest request) {
+    public ResponseEntity<?> update(CourseRequest request, Long id) {
         return ResponseEntity.ok().build();
     }
 

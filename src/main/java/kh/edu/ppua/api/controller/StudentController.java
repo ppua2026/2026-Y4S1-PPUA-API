@@ -34,7 +34,7 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getStudentById(@PathVariable long id){
+    public ResponseEntity<?> getStudentById(@PathVariable(name = "id") long id){
         System.out.println("Id : "+id);
         System.out.printf("%s%s%s%n", "id"," : " ,id);
         Student student = service.getStudentById(id);
@@ -47,15 +47,11 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(student);
     }
 
-//    @GetMapping("/{id}/profile")
-//    public ResponseEntity<?> getStudentProfile(){
-//
-//    }
-
     @PutMapping("/{id}/profile")
     public ResponseEntity<?> uploadProfile(
             @RequestHeader("User-Agent") String userAgent,
-            @RequestParam MultipartFile file){
+            @RequestParam MultipartFile file,
+            @PathVariable(name = "id") Long id){
         System.out.println("UserAgent : "+ userAgent);
         System.out.println("File Name : "+ file.getOriginalFilename());
         return ResponseEntity.ok(file.getOriginalFilename());

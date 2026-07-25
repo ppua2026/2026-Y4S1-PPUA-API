@@ -28,7 +28,7 @@ public class LectureController implements IDefaultController<LectureEntity> {
     }
 
     @Override
-    public ResponseEntity<?> update(LectureEntity request) {
+    public ResponseEntity<?> update(LectureEntity request, Long id) {
         return null;
     }
 

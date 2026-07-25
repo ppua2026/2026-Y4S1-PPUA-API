@@ -2,13 +2,13 @@ package kh.edu.ppua.api.controller;
 
 import kh.edu.ppua.api.model.SubjectEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping(value = "/api/v1/subject")
 @RestController
 public class SubjectController implements IDefaultController<SubjectEntity> {
+
+    @GetMapping
     @Override
     public ResponseEntity<?> findAllWithPaginate(@RequestParam(name = "query", defaultValue = "") String query,
                                                  @RequestParam(name = "page", defaultValue = "0") int page,
@@ -16,23 +16,27 @@ public class SubjectController implements IDefaultController<SubjectEntity> {
         return null;
     }
 
+    @GetMapping(value = "/{id}")
     @Override
-    public ResponseEntity<?> findById(Long id) {
+    public ResponseEntity<?> findById(@PathVariable(name = "id") Long id) {
         return null;
     }
 
+    @PostMapping
     @Override
     public ResponseEntity<?> saveNew(SubjectEntity request) {
         return null;
     }
 
+    @PutMapping(value = "/{id}")
     @Override
-    public ResponseEntity<?> update(SubjectEntity request) {
+    public ResponseEntity<?> update(SubjectEntity request, @PathVariable(name = "id") Long id) {
         return null;
     }
 
+    @DeleteMapping("/{id}")
     @Override
-    public ResponseEntity<?> deleteById(Long id) {
+    public ResponseEntity<?> deleteById(@PathVariable(name = "id") Long id) {
         return null;
     }
 }

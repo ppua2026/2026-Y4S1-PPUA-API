@@ -28,7 +28,7 @@ public class FacultyController implements IDefaultController<FacultyEntity>{
     }
 
     @Override
-    public ResponseEntity<?> update(FacultyEntity request) {
+    public ResponseEntity<?> update(FacultyEntity request, Long id) {
         return null;
     }
 

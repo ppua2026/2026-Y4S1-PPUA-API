@@ -10,7 +10,7 @@ public interface IDefaultController<T> {
 
     ResponseEntity<?> saveNew(T request);
 
-    ResponseEntity<?> update(T request);
+    ResponseEntity<?> update(T request, Long id);
 
     ResponseEntity<?> deleteById(Long id);
 
