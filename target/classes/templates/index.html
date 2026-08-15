@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PPUA</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+    <h1 th:text="${message}"></h1>
+    <table>
+        <tr th:each="p : ${categories}">
+            <td th:text="${p.name}"></td>
+        </tr>
+    </table>
+
+    <script th:src="@{/js/main.js}"></script>
+</body>
+</html>
